@@ -1,0 +1,25 @@
+[general]
+import = [
+   # "gruvbox_dark.toml",
+   "deglade.toml",
+]
+
+
+
+[window]
+dimensions = { columns = 80, lines = 40 }
+decorations = "Full"
+dynamic_title = false
+title = "Alacritty terminal"
+
+[scrolling]
+history = 10000
+
+
+[cursor]
+style = { shape = "Beam", blinking = "Off" }
+
+[selection]
+save_to_clipboard = true
+
+

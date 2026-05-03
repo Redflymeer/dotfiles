@@ -1,0 +1,30 @@
+[colors.primary]
+foreground = "#f2f3f4"
+background = "#141313"
+
+[colors.normal]
+black = "#141313"
+red = "#AD0303"
+green = "#0a7a2f"
+yellow = "#cccc6c"
+blue = "#3666ff"
+magenta = "#8812a6"
+cyan = "#036b43"
+white = "#f2f3f4"
+
+[window]
+opacity = 0.95
+
+[font]
+normal = { family = "hack", style = "Bold" }
+size = 12
+
+[colors.bright]
+black = "#6e6868"
+red = "#ff7070"
+green = "#a4ff80"
+yellow = "#fbff80"
+blue = "#802fff"
+magenta = "#dfa2fA"
+cyan = "#a8fffd"
+white = "#faf2f2"
