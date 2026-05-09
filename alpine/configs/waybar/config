@@ -1,0 +1,25 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 26,
+  "modules-left": ["sway/workspaces"],
+  "modules-center": ["sway/window"],
+  "modules-right": ["custom/rofi","tray", "network", "bluetooth","clock"],
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "interval": 1
+  },
+  "custom/rofi": {
+    "format": "☐ {}",
+    "on-click": "rofi -show drun"
+  },
+  "tray": {
+    "icon-size": 10,
+    "spacing": 10,
+    "show-passive-items": true
+  }
+}

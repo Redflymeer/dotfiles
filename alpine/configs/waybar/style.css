@@ -1,0 +1,19 @@
+* { font-family: monospace; font-size: 12px; }
+window#waybar { 
+   background: rgba(46, 52, 64, 0.9);
+   color: #ffffff; 
+   opacity: 0.90;
+}
+
+#workspaces button { 
+   padding: 0 10px; 
+   color: #ffffff;
+   background: transparent;
+}
+
+
+#workspaces button.focused { 
+   background: #1c1c1c; 
+}
+#mode, #window { padding: 0 15px; }
+#pulseaudio, #network, #clock { padding: 0 15px; }

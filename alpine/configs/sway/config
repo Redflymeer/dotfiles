@@ -1,0 +1,74 @@
+# ~/.config/sway/config
+set $mod Mod4
+font monospace 10
+
+
+# Фон
+# Обои на все мониторы
+# Обои (exec_always срабатывает даже при reload)
+exec_always --no-startup-id swaybg -m fill -i "/home/alpine/.wallpapers/knight_wallpaper1.jpg" &
+
+# === КЛАВИАТУРА ===
+input type:keyboard {
+    xkb_layout "us,ru"
+    xkb_options "grp:win_space_toggle"
+    repeat_rate 50
+    repeat_delay 200
+}
+
+# === АВТОЗАПУСК (правильный порядок) ===
+exec_always --no-startup-id pipewire &
+exec_always --no-startup-id wireplumber &
+# Запуск DBus (нужен для IPC)
+exec --no-startup-id dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus &
+
+# Автозапуск Waybar (полный путь + exec_always)
+exec_always --no-startup-id sh -c 'export XDG_RUNTIME_DIR=/run/user/1000; /usr/bin/waybar'
+
+# === БИНДЫ: ЗАПУСК ===
+bindsym $mod+d exec rofi -show drun
+bindsym Ctrl+Alt+T exec kitty
+
+# === БИНДЫ: ПЕРЕКЛЮЧЕНИЕ ОКОН (Alt+Tab стиль) ===
+# Вариант 1: Простое циклическое переключение (как в старых WM)
+bindsym $mod+Tab focus right
+bindsym $mod+Shift+Tab focus left
+
+# Вариант 2: Визуальный выбор через rofi (красиво, как в macOS/Windows)
+# Раскомментируй строку ниже, если хочешь красивое меню вместо простого переключения:
+# bindsym $mod+Tab exec rofi -show window -modi window -kb-cancel Escape
+
+# === БИНДЫ: УПРАВЛЕНИЕ ===
+bindsym $mod+q kill                    # Закрыть окно
+bindsym $mod+f fullscreen toggle       # Полноэкранный режим
+bindsym $mod+Shift+r reload            # Перезагрузить конфиг
+bindsym $mod+Shift+e exec swaynag -t exit  # Выход из сессии
+bindsym $mod+Shift+c reload            # Reload config (дубликат для удобства)
+
+# === БИНДЫ: НАВИГАЦИЯ (vim-style) ===
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# === БИНДЫ: РАБОЧИЕ СТОЛЫ ===
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+
+# === СТИЛЬ ОКОН ===
+# Тонкая рамка, без заголовков (минимализм)
+default_border pixel 1
+default_floating_border pixel 1
+
+
+
