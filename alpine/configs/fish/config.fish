@@ -3,7 +3,8 @@ if status is-interactive
 end
 
 # Udiskctl
-alias mant="doas udiskctl -b /dev/sdb1"
+alias mant="doas udisksctl mount -b /dev/sdb1"
+alias unmant="doas udisksctl unmount -b /dev/sdb1"
 
 # git
 alias g="git"

@@ -9,7 +9,7 @@ fi
 # apk
 doas apk add neovim ripgrep zsh bash fish flatpak docker lazygit lazydocker \
   doas sway waybar pulseaudio pipewire kitty kitty-kitten imagemagick \
-  build-base cmake g++ gcc mpv gtkmm4 gtkmm4-dev rofi
+  build-base cmake g++ gcc mpv gtkmm4 gtkmm4-dev rofi udiskie udisks2
 
 # Flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
