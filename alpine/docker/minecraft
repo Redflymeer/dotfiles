@@ -1,0 +1,23 @@
+#!/usr/bin/env fish
+# ~/local/bin/minecraft — запуск Minecraft в Docker
+
+# Доступ к дисплею (тихо, без вывода)
+xhost +SI:localuser:root >/dev/null 2>&1
+
+# Основной запуск
+docker run -d --name PineconeMC --restart unless-stopped \
+    --device /dev/dri \
+    --device /dev/snd \
+    -v /run/user/1000/pipewire-0:/run/user/1000/pipewire-0:ro \
+    -v ~/docker/games/PineconeMC:/home/user/game:ro \
+    -v ~/.local/share/ElyPrismLauncher:/home/user/.local/share/ElyPrismLauncher \
+    -v ~/.minecraft:/home/user/.minecraft \
+    -e DISPLAY=$DISPLAY \
+    -e PIPEWIRE_LATENCY="1024/48000" \
+    -e LANG=C.UTF-8 -e LC_ALL=C.UTF-8 \
+    -e MESA_LOADER_DRIVER_OVERRIDE=iris \
+    -e APPIMAGE_EXTRACT_AND_RUN=1 \
+    -e _JAVA_OPTIONS="-Dorg.lwjgl.opengl.Display.vsync=true -Dsun.java2d.opengl=false -Dorg.lwjgl.system.allocator=system" \
+    --net host \
+    gaming-debian \
+    /home/user/game/PineconeMC.AppImage
