@@ -1,4 +1,4 @@
-* { font-family: monospace; font-size: 12px; }
+* { font-family: "Hack-Regular"; font-size: 12px; }
 window#waybar { 
    background: rgba(46, 52, 64, 0.9);
    color: #ffffff; 

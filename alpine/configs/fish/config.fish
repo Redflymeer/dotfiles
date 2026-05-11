@@ -2,9 +2,18 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+# === Курсоры ===
+set $XCURSOR_THEME Breeze
+set $XCURSOR_SIZE 16
+
+# === Алиасы ===
 # Udiskctl
 alias mant="doas udisksctl mount -b /dev/sdb1"
 alias unmant="doas udisksctl unmount -b /dev/sdb1"
+
+# Sway
+alias ses-logout="swaymsg exit"
+alias shutdown="doas openrc shutdown"
 
 # git
 alias g="git"

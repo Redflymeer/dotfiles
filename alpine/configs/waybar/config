@@ -1,25 +1,32 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 26,
+  "height": 24,
   "modules-left": ["sway/workspaces"],
-  "modules-center": ["sway/window"],
-  "modules-right": ["custom/rofi","tray", "network", "bluetooth","clock"],
+  "modules-center": ["clock", "sway/window"],
+  "modules-right": ["custom/wofi","tray", "network", "bluetooth"],
   "sway/workspaces": {
-    "disable-scroll": true,
+    "disable-scroll": false,
     "all-outputs": true
   },
   "clock": {
     "format": "{:%H:%M}",
     "interval": 1
   },
-  "custom/rofi": {
-    "format": "☐ {}",
-    "on-click": "rofi -show drun"
+  "custom/wofi": {
+    "format": " Wofi {}",
+    "on-click": "wofi --show drun"
   },
   "tray": {
-    "icon-size": 10,
-    "spacing": 10,
+    "icon-size": 15,
+    "spacing": 15,
     "show-passive-items": true
+  },
+  "bluetooth": {
+    "format": " BT {status} ",
+    "on-click": "blueman-manager"
+  },
+  "network": {
+    "on-click": "kitty doas net-tool"
   }
 }
