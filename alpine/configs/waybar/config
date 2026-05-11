@@ -27,6 +27,6 @@
     "on-click": "blueman-manager"
   },
   "network": {
-    "on-click": "kitty doas net-tool"
+    "on-click": "kitty net-tool"
   }
 }
