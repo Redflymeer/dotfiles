@@ -15,7 +15,8 @@ doas apk add neovim ripgrep fd bash fish flatpak docker lazygit lazydocker \
   build-base cmake g++ gcc mpv gtkmm4 gtkmm4-dev rofi udiskie udisks2 \
   pipewire wireplumber pipewire-pulse pipewire-jack pipewire-alsa pavucontrol pulseaudio \
   xdg-desktop-portal-wlr \
-  bluez bluez-openrc pipewire-spa-bluez blueman
+  bluez bluez-openrc pipewire-spa-bluez blueman \
+  qt6-qtsvg qt6-qtbase qt6-qtvirtualkeyboard qt6-qtmultimedia qt6-qtmultimedia-ffmpeg
 
 # Openrc service
 # Pipewire / Wirepliumber
