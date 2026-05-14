@@ -1,0 +1,13 @@
+#/media/dm-0/apks
+
+# Yandex
+http://mirror.yandex.ru/mirrors/alpine/v3.23/main
+http://mirror.yandex.ru/mirrors/alpine/v3.23/community
+# Edge
+@testing https://mirror.yandex.ru/mirrors/alpine/edge/testing
+
+# Offical
+https://dl-cdn.alpinelinux.org/alpine/v3.23/main
+https://dl-cdn.alpinelinux.org/alpine/v3.23/community
+# Edge
+@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing
