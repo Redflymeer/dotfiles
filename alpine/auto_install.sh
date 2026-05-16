@@ -10,16 +10,18 @@ if [ "$(id -u)" -eq 0 ]; then
 fi
 
 # Apk
-# Base
-doas apk add neovim ripgrep fd bash fish flatpak docker lazygit lazydocker
-# Term + WM + WM Depencies
-doas sway waybar kitty wofi kitty-kitten imagemagick waybar
-# Coding/extra
-build-base cmake g++ gcc mpv gtkmm4 gtkmm4-dev rofi udiskie udisks2
+# Shell
+doas apk add neovim ripgrep fd bash fish flatpak lazygit
+# WM + WM Depencies
+sway waybar \ 
+# Extra
+kitty kitty-kitten imagemagick doas udiskie udisks2 mpv nemo wofi rclone wine
+# Coding
+build-base cmake g++ gcc gtkmm4 gtkmm4-dev
 # Sound
-pipewire wireplumber pipewire-pulse pipewire-jack pipewire-alsa pavucontrol pulseaudio
+pipewire wireplumber pipewire-pulse pipewire-jack
 # Docker
-xdg-desktop-portal-wlr
+xdg-desktop-portal-wlr docker lazydocker xhost xdg-utils
 # Bluetooth
 bluez bluez-openrc pipewire-spa-bluez blueman
 # Silent SDDM
@@ -46,13 +48,19 @@ doas rc-update add libvirtd
 # Flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-flatpak install -y --user com.obsproject.Studio dev.vencord.Vesktop md.obsidian.Obsidian \
-  org.keepassxc.KeePassXC com.valvesoftware.Steam
-flatpak install -y --system app.zen_browser.Zen \
-  net.sonobux.SonoBus io.github.dimtpap.coppwr io.github.Soundux com.github.wwmm.easyeffects
+flatpak install -y --user com.obsproject.Studio md.obsidian.Obsidian \
+  org.keepassxc.KeePassXC com.valvesoftware.Steam app.zen_browser.Zen
+flatpak install -y --system net.sonobux.SonoBus io.github.dimtpap.coppwr \ 
+io.github.Soundux com.github.wwmm.easyeffects org.bleachbit.Bleachbit
+
+flatpak override --filesystem=/home/ app.zen_browser.Zen
+flatpak override --filesystem=/home/ com.obsproject.Studio
+flatpak override --filesystem=/home/ org.bleachbit.Bleachbit
+flatpak override --filesystem=/home/ md.obsidian.Obsidian
+flatpak override --filesystem=/home/ com.valvesoftware.Steam
 
 # Groups
-#   Docker
+# Docker
 doas addgroup docker 2>/dev/null || true
 doas addgroup "$(whoami)" docker
 
